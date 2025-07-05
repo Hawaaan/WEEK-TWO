@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-300 flex justify-center items-center min-h-screen">
+    <div class="bg-white shadow-md text-center p-20">
+        <h1 class="text-4xl mb-2"> STOP TIME</h1>
+        <h2 id="time" class="text-4xl mb-5"> 00:00 </h2>
+        <button onclick="startClock()" class="border rounded bg-black px-2.5 text-white text-xl hover:bg-green-800 transition-transform duration-300 transform hover:scale-110" >START</button>
+        <button onclick="stopClock()" class="border rounded bg-black px-2.5 text-white text-xl hover:bg-red-800 transition-transform duration-300 transform hover:scale-110" >STOP</button>
+        <button onclick="resetClock()" class="border rounded bg-black px-2.5 text-white text-xl hover:bg-blue-800 transition-transform duration-300 transform hover:scale-110" >RESE    T</button>
+    </div>
+</body>
+<script>
+    let secondsElapsed = 0;
+    let interval = null;
+    const time = document.getElementById("time")
+
+
+    function padStart(value) {
+        return String(value).padStart(2, "0")
+        
+    }
+    function setTime() {
+        const minutes = Math.floor(secondsElapsed / 60)
+        const seconds = secondsElapsed % 60
+        time.innerHTML = `${padStart(minutes)}:${padStart(seconds)}`;
+
+    }
+    function timer() {
+        secondsElapsed++;
+        setTime()
+    }
+    function startClock() {
+        if (interval) stopClock() 
+        interval = setInterval(timer, 1000)
+        
+    }
+    function stopClock() {
+        clearInterval(interval)
+    }
+    function resetClock() {
+        secondsElapsed = 0;
+        setTime()
+    }
+</script>
+</html>

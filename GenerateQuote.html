@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="./output.css" rel="stylesheet">
+
+
+</head> 
+   <body class=" text-black flex justify-center items-center content-center h-screen">
+    <div class="bg-gray-400 py-2 px-2 shadow-md text-center rounded-es-3xl ">
+        <h1 class="text-2xl text-center my-4">RANDOM QUOTE</h1>
+        <p id="quote"></p>
+        <button onclick="generateQuote()" class=" mt-4 mb-2 border py-1 px-4 bg-black rounded text-amber-50">Generate Quote</button>
+
+    </div>
+   </body>
+   <script>
+    const quotes = [
+"Jidka kaliya ee shaqo wanaagsan lagu sameeyo waa inaad jeclaato waxa aad qabanayso.",
+"Noloshu waa waxa kugu dhacaya marka aad mashquulsan tahay sameynaya.",
+"Mustaqbalku wuxuu u sugnaaday kuwa rumaysan quruxda riyooyinkooda.",
+"Ma muhiim baa sida aad u gaabis badan tahay, waxa muhiimka ah waa inaadan istaagin.",
+"Ugu dambeyn, ma aha sannadaha aad noolayd ee muhiimka ah, waa nolosha aad ku nooleyd sannadahaas.",
+"Ujeeddada nolosheennu waa in aan noqono kuwo faraxsan.",
+"Noqo mid nolol ku mashquulsan ama geeri u diyaar garooba.",
+"Noloshu waa hal mar, laakiin haddii aad si sax ah u noolaatid, hal mar ayaa kugu filan.",
+"Guuldarrooyin badan oo nolosha ka dhaca waa dad aan garanaynin sida ay ugu dhawaayeen guusha markay is dhiibeen.",
+"Haddii aad rabto nolol farxad leh, la xiriiri hadaf, ha la xiriirin dad ama hanti.",
+]
+    const usedIndexes = new Set()
+const quoteElement = document.getElementById("quote")
+
+function generateQuote() {
+    const randomIdx = Math.floor(Math.random() * quotes.length)
+    const quote = quotes[randomIdx]
+    quoteElement.innerHTML = quote; 
+}
+   </script>
+</html>

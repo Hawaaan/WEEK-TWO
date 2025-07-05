@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head> 
+<body class="bg-white flex justify-center items-center min-h-screen">       
+  <div class="bg-amber-400 p-10 shadow-md">
+    <h2 class="text-center text-4xl font-Bebas">Palindrome checker</h2>
+    <input id="input" class="border-2 rounded px-4" type="text" placeholder="input Somethings">
+    <button onclick="check()" class="cursor-pointer hover:bg-gray-300 rounded bg-amber-800 px-4 my-4">Check</button>
+  </div>
+</body>
+
+<script>    
+  const input = document.getElementById("input");
+
+  function reverseString(str) {
+    return str.split("").reverse().join("");
+  }
+
+  function check() {
+    const value = input.value.trim(); 
+
+
+    if (value === "") {
+      alert("Fadlan qoraal soo geli!");
+      return;
+    }
+
+    const reverse = reverseString(value);
+
+    if (value === reverse) {
+      alert("P A L I N D R O M E");
+    } else {
+      alert("Not today");
+    }
+
+    input.value = "";
+  }
+</script>
+</html>
